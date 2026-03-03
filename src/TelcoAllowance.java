@@ -3,16 +3,16 @@ import java.util.Map;
 
 public class TelcoAllowance implements UsagePromo {
     
-    private static Map<String, String> allowanceMap = new HashMap<>();
+    private static Map<String, double> allowanceMap = new HashMap<>();
 
         static {
-            allowanceMap.put("Smart", "15 GB for ₱500 per month");
-            allowanceMap.put("Globe", "10 GB for ₱450 per month");
-            allowanceMap.put("Ditto","8 GB for ₱400 per month");
+            allowanceMap.put("Smart", 15);
+            allowanceMap.put("Globe", 10);
+            allowanceMap.put("Ditto", 8);
         }
 
     @Override
     public String showAllowance(String telcoName, double money) {
-        return allowanceMap.getOrDefault(telcoName, "Unknown");
+        return allowanceMap.get(telcoName) + " GB for ₱"+ money;
     }
 }
